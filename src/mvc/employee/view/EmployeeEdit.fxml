@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <top>
+      <Label text="Edit employee" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button mnemonicParsing="false" text="Cancel" />
+            <Button mnemonicParsing="false" text="Save" />
+        </items>
+      </ToolBar>
+   </bottom>
+   <right>
+      <DatePicker BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <ChoiceBox prefWidth="150.0" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <ChoiceBox prefWidth="150.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>
