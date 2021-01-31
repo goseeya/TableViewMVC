@@ -30,9 +30,9 @@ public class EmployeesController {
 
 	@FXML
 	private TableColumn<Employee, String> phoneNameColumn;
-
-	@FXML
-	private TableColumn<Employee, LocalDate> hireDateColumn;
+//
+//	@FXML
+//	private TableColumn<Employee, LocalDate> hireDateColumn;
 
 	@FXML
 	private TableColumn<Employee, String> hireDateAsStrColumn;
@@ -94,7 +94,7 @@ public class EmployeesController {
 
 		phoneNameColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
 
-		hireDateColumn.setCellValueFactory(cellData -> cellData.getValue().hireDateProperty());
+		hireDateAsStrColumn.setCellValueFactory(cellData -> cellData.getValue().hireDateProperty().asString());
 
 		jobIdColumn.setCellValueFactory(cellData -> cellData.getValue().jobIdProperty().asObject());
 

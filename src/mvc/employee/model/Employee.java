@@ -118,7 +118,7 @@ public class Employee {
 	}
 
 	public int getSalary() {
-		return salary.get();
+		return salary != null ? salary.get() : 0;
 	}
 
 	public void setSalary(int salary) {
@@ -126,7 +126,7 @@ public class Employee {
 	}
 
 	public IntegerProperty salaryProperty() {
-		return salary;
+		return salary != null ? new SimpleIntegerProperty(salary.get()) : new SimpleIntegerProperty(0);
 	}
 
 	public int getManagerId() {

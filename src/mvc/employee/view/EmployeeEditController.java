@@ -22,7 +22,7 @@ public class EmployeeEditController {
 	@FXML
 	void onSave(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Conf");
+		alert.setTitle("SAVE TITLE");
 		alert.setContentText(save.getText());
 		alert.show();
 		employeeEditStage.close();

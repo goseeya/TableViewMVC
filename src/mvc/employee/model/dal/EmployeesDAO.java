@@ -26,12 +26,21 @@ public class EmployeesDAO {
 
 		ObservableList<Employee> employees = FXCollections.observableArrayList();
 		try (Statement statement = connection.createStatement();) {
-			String query = "SELECT * FROM EMPLOYEES";
+//			String query = "SELECT * FROM EMPLOYEES";
 //
 //			String query = "SELECT E.EMPLOYEE_ID, E.FIRST_NAME, E.LAST_NAME, E.EMAIL , E.PHONE_NUMBER, E.HIRE_DATE, E.JOB_ID, E.SALARY, E.COMMISSION_PCT, " 
 //					+ "(SELECT E1.FIRST_NAME || ' ' || E1.LAST_NAME FROM EMPLOYEES E1 WHERE E1.EMPLOYEE_ID = E.MANAGER_ID), "
 //			        + "(SELECT DEPARTMENT_NAME || ' ' || E FROM DEPARTMENTS D1 WHERE D1.DEPARTMENT_ID = E.EMPLOYEE_ID), "
 //					+ "DEPARTMENT_ID FROM EMPLOYEES";
+
+			String query = "SELECT E.EMPLOYEE_ID as EMP_ID, " + "E.FIRST_NAME as FIRST_NAME, "
+					+ "E.LAST_NAME as LAST_NAME, " + "E.EMAIL as EMAIL, " + "E.PHONE_NUMBER as PHONE, "
+					+ "E.HIRE_DATE as HIRE_DATE, " + "E.JOB_ID, " + "E.SALARY as SALARY, "
+					+ "E.MANAGER_ID as MANAGER_ID, " + "E.COMMISSION_PCT as COMMISSION, "
+					+ "(SELECT E1.FIRST_NAME || ' ' || E1.LAST_NAME FROM EMPLOYEES E1 WHERE E1.EMPLOYEE_ID = E.MANAGER_ID) as MANAGER,  "
+					+ "(SELECT J.JOB_TITLE FROM JOBS J WHERE J.JOB_ID = E.JOB_ID) as JOB_TITLE, "
+					+ "(SELECT D.DEPARTMENT_NAME from DEPARTMENTS D WHERE D.DEPARTMENT_ID = E.DEPARTMENT_ID) as DEPT_ID "
+					+ "FROM EMPLOYEES E";
 			ResultSet resultSet = statement.executeQuery(query);
 
 			while (resultSet.next()) {
@@ -42,7 +51,6 @@ public class EmployeesDAO {
 		}
 		return employees;
 	}
-
 
 	private Employee rs2Employee(ResultSet resultSet) {
 		Employee emp = new Employee();
